@@ -2,5 +2,10 @@
     "sign_in_button": "Sign-In",
     "sign_up_button": "Sign-Up",
     "onboard_social": "Or via social media",
-    "sign_in_forgot_pass": "Forgot your password?"
+    "sign_in_forgot_pass": "Forgot your password?",
+    "dont_have_account_text": "Don't have an account?",
+    "sign_up_text": "Sign Up",
+    "sign_in_text": "Sign In",
+    "onboard_lang_text": "The limits of my language means the limits of my world.",
+    "onboard_lang_tutor_text": "Ludwig Wittgenstein"
 }
