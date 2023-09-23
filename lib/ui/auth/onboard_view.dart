@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:talkativetitans/constants/project_colors.dart';
 import 'package:talkativetitans/constants/project_paddings.dart';
 import 'package:talkativetitans/constants/project_strings.dart';
 import 'package:lottie/lottie.dart';
@@ -26,10 +27,10 @@ class _OnboardViewState extends State<OnboardView> {
         padding: ProjectPadding.pagePadding,
         child: Column(
           children: [
-            Container(child: Lottie.asset("assets/animations/lottie/onboard.json")),
+            Container(child: Lottie.asset("assets/animations/lottie/onboardLottie.json")),
             const _EmptyBox(),
             Text(
-              ProjectString.onboardWelcome,
+              'Welcome Titan!',
               style: Theme.of(context)
                   .textTheme
                   .titleLarge
@@ -37,18 +38,28 @@ class _OnboardViewState extends State<OnboardView> {
             ),
             const _EmptyBox(),
             Text(
-              ProjectString.onboardMessage,
+              "onboard_lang_text",
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w500),
-            ),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
+            ).tr(),
+            const _EmptyBox(),
+            Text(
+              "onboard_lang_tutor_text",
+              textAlign: TextAlign.right,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontSize: Theme.of(context).textTheme.titleLarge?.fontSize, fontWeight: FontWeight.bold),
+            ).tr(),
+            const _EmptyBox(),
             const _EmptyBox(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomButton(
-                  buttonBGColor: Colors.blue[900]!,
-                  buttonFGColor: Colors.white,
-                  buttonTextString: 'sign_in_button',
+                  buttonBGColor: ProjectColor.black,
+                  buttonFGColor: ProjectColor.white,
+                  buttonTextString: 'sign_in_text'.tr(),
                   onPressed: () {
                     context.go('/signin');
                   },
@@ -56,7 +67,7 @@ class _OnboardViewState extends State<OnboardView> {
                 CustomButton(
                   buttonBGColor: Colors.white,
                   buttonFGColor: Colors.black,
-                  buttonTextString: 'sign_up_button',
+                  buttonTextString: 'sign_up_text'.tr(),
                   onPressed: () {
                     context.go('/signup');
                   },
