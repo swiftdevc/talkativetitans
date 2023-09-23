@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:talkativetitans/constants/project_paddings.dart';
 import 'package:talkativetitans/constants/project_strings.dart';
 import 'package:lottie/lottie.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:talkativetitans/core/router/app_router.dart';
 import 'package:talkativetitans/ui/auth/sign_in_view.dart';
 
 class OnboardView extends StatefulWidget {
@@ -45,39 +48,30 @@ class _OnboardViewState extends State<OnboardView> {
                 CustomButton(
                   buttonBGColor: Colors.blue[900]!,
                   buttonFGColor: Colors.white,
-                  buttonTextString: ProjectString.appSignIn,
+                  buttonTextString: 'sign_in_button',
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignInView()));
-                    setState(() {});
+                    context.go('/signin');
                   },
                 ),
                 CustomButton(
                   buttonBGColor: Colors.white,
                   buttonFGColor: Colors.black,
-                  buttonTextString: ProjectString.appSignUp,
+                  buttonTextString: 'sign_up_button',
+                  onPressed: () {
+                    context.go('/signup');
+                  },
                 ),
               ],
             ),
             const _EmptyBox(),
             const _EmptyBox(),
-            Text(
-              ProjectString.onboardSocialAuth,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontSize: Theme.of(context).textTheme.titleMedium?.fontSize),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [_CustomSocialAuthButton(), _CustomSocialAuthButton()],
-            )
           ],
         ),
       ),
     );
   }
 
-  IconButton _CustomSocialAuthButton() => IconButton(
+  IconButton _customSocialAuthButton() => IconButton(
         onPressed: () {},
         icon: const Icon(Icons.facebook_outlined),
         iconSize: 24.0,
